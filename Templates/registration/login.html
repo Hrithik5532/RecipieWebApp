@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<style>
+    .placeicon {
+        font-family: fontawesome;
+    }
+    
+    .custom-control-label::before {
+        background-color: #dee2e6;
+        border: #dee2e6;     
+    }
+</style>
+
+<body style="background-color:black;margin:5%">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+<div class="">
+  	<!-- Container containing all contents -->
+  	<div class="container">
+	  	<div class="row justify-content-center">
+	  		<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+	  			<!-- White Container -->
+			    <div class="container bg-white rounded mt-2 mb-2 px-0">
+			    	<!-- Main Heading -->
+				    <div class="row justify-content-center align-items-center pt-3">
+				   		<h1><strong>Login</strong></h1>
+					</div>
+
+					<div class="pt-3 pb-3 justify-content-center">
+				   		<form class="form-horizontal" action="{% url 'login_view' %}" method="POST">
+                            {% csrf_token%}
+
+				   			<!-- User Name Input -->
+			                <div class="form-group row justify-content-center px-3">
+			                    <div class="col-9 px-0" style="">
+                                    <a >Username</a>
+                                    {{form.username}}
+                                </div>
+			                </div>
+
+			                <!-- Password Input -->
+			                <div class="form-group row justify-content-center px-3">
+			                  	<div class="col-9 px-0">	
+                                    <a>Password</a>
+                                    {{form.password}}
+                                </div>
+			                </div>
+
+			                <!-- CheckBox Remember Me-->
+			                <div class="form-group row justify-content-center px-3">
+			                	<div class="col-9">
+			                		<div class="row">
+					                  
+					                    <!-- Forgot Password Link -->
+					                    <div class="col-6 px-0 text-right">
+					                        <span><a href="#" class="text-danger"><b>Forgot Password?</b></a></span>
+					                    </div>
+					                </div>
+				                </div>
+			                </div>
+
+			                <!-- Log in Button -->
+			                <div class="form-group row justify-content-center">       
+			                    <div class="col-3 px-3">
+			                    	<input type="submit" value="Log in" class="btn btn-block btn-info">
+			                    </div>
+			                </div>
+
+			            </form>
+					</div>
+
+					<!-- Alternative Login -->
+					<div class="mx-0 px-0 bg-light">
+					
+
+						<!-- Register Now -->
+						<div class="pt-2">
+							<div class="row justify-content-center">
+					   			<h5>Don't have an Account?<span><a href="{% url 'signup_view' %}" class="text-danger"> Register Now!</a></span></h5>
+							</div>
+					   		<div class="row justify-content-center align-items-center pt-4 pb-5">
+					   			<div class="col-4">
+					   				<a href="{% url 'signup_view' %}" class="btn btn-block btn-info">
+					   					REGISTER
+					   				</a>
+					   			</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+   
+</body>
+</html>

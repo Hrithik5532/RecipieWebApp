@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+<!-- -->
+{% block content %}
+<h1 style="color:white">Recipe # {{object.id}}</h1>
+
+{% comment %}       
+   <!-- Gallery -->
+   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0"  style="display:flex;padding:5px">
+     {% for img in imgs %}
+     {% if forloop.counter == 1 %}
+     
+     
+        {% elif forloop.counter == 2 %}
+        <img
+        src="../media/{{img.img}}"
+        class=" shadow-1-strong rounded mb-4"
+        alt="Wintry Mountain Landscape" style='padding:5px;width:60%'
+        /> 
+        {% endif %}
+        {% endfor %}
+        
+      </div>
+      {% endcomment %}
+      
+      <!-- Gallery -->
+      <div class="card my-4" style='background-color:#bbd2e9'>
+     <div class="column" style='  margin: 5%;  '>
+    <div class="card-body" style=' display:flex;    '>
+   <img
+   src="../media/{{object.img}}"
+   class=" shadow-1-strong rounded mb-4"
+   alt="img" style='padding:5px;width:31%;  margin: auto;  '
+   />
+  </div>
+    <h5 class="card-title">{{ object.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ object.author }} ,<span style="font-size:10px">  (  {{ object.updated_at|date:"F d, Y" }}) </span></h6>
+    <p class="card-text"><h2>Description:</h2>{{ object.description | safe}}</p>
+    <br>
+    <p class="card-text"><h1>Ingrdients:</h1>
+        {{ object.ingre | safe}}</p> 
+    <p class="card-text"><h1>Steps:</h1>
+        {{ object.steps | safe}}</p>
+
+    </h6>
+  </div>
+</div>
+{% if object.author == user %}
+<div class="col-4">
+    <a class="btn btn-outline" href="{% url 'recipes-update' object.id %}">Update</a>
+    <a class="btn btn-outline-danger" href="{% url 'recipes-delete' object.id %}" style='background-color:red;color:white'>Delete</a> 
+</div>
+{% endif %}
+<!-- -->
+{% endblock content %}
