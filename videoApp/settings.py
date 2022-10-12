@@ -142,3 +142,4 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
+DISABLE_COLLECTSTATIC=1
